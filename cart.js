@@ -13,8 +13,11 @@ function calculateTotal(cartItems) {
 }
 
 function applyDiscount(total, discountRate) {
+  if (typeof discountRate !== "number" || Number.isNaN(discountRate)) {
+    throw Error(`Discount rate is not a number.`);
+  }
   if (discountRate > 1 || discountRate < 0) {
-    throw Error(`Discount rate must be greater than or equal to 0 and less than or equal to 1`);
+    throw Error(`Discount rate must be greater than or equal to 0 and less than or equal to 1.`);
   }
   return total - total * discountRate; // Bug: Missing validation for discountRate
 }
@@ -34,8 +37,8 @@ const total = calculateTotal(cart);
 const discountedTotal = applyDiscount(total, 0.2); // 20% discount
 const receipt = generateReceipt(cart, discountedTotal);
 
-// document.getElementById("total").textContent = `Total: $${discountedTotal}`;
-// document.getElementById("receipt").textContent = receipt;
+document.getElementById("total").textContent = `Total: $${discountedTotal}`;
+document.getElementById("receipt").textContent = receipt;
 
 if (typeof document !== "undefined") {
   document.getElementById("total").textContent = `Total: $${discountedTotal}`;
