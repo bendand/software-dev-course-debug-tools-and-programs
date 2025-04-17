@@ -1,7 +1,7 @@
 const cart = [
-  // { name: "Laptop", price: 1000 },
-  // { name: "Phone", price: 500 },
-  // { name: "Headphones", price: 200 }
+  { name: "Laptop", price: 1000 },
+  { name: "Phone", price: 500 },
+  { name: "Headphones", price: 200 }
 ];
 
 function calculateTotal(cartItems) {
